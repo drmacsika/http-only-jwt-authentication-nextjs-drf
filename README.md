@@ -11,5 +11,6 @@
 
 
 ## FrontEnd Next JS
+- cd frontend
 - npm install
 - npm run dev
