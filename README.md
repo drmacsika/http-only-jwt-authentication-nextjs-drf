@@ -1,5 +1,4 @@
-# NextJS-and-DRF-JWT-Authentication
-Next.Js and DRF JWT Authentication with httpOnly Cookies.
+# Next.Js and DRF JWT Authentication with httpOnly Cookies.
 
 ## Backend DRF
 - python -m venv venv
