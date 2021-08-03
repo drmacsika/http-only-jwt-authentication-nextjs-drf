@@ -12,5 +12,5 @@ Next.Js and DRF JWT Authentication with httpOnly Cookies.
 
 
 ## FrontEnd Next JS
-npm install
-npm run dev
+- npm install
+- npm run dev
