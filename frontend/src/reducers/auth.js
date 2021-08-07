@@ -3,6 +3,9 @@ import {
   SIGNUP_FAIL,
   SET_AUTH_LOADING,
   REMOVE_AUTH_LOADING,
+  LOGIN_SUCCESS,
+  LOGIN_FAIL,
+  RESET_SIGNUP_SUCCESS,
 } from "../actions/types";
 
 const initialState = {
@@ -23,6 +26,21 @@ const authReducer = (state = initialState, action) => {
     case SIGNUP_FAIL:
       return {
         ...state,
+      };
+    case RESET_SIGNUP_SUCCESS:
+      return {
+        ...state,
+        signup_success: false,
+      };
+    case LOGIN_SUCCESS:
+      return {
+        ...state,
+        isAuthenticated: true,
+      };
+    case LOGIN_FAIL:
+      return {
+        ...state,
+        isAuthenticated: false,
       };
     case SET_AUTH_LOADING:
       return {
