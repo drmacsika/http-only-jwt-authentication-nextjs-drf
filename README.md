@@ -1,7 +1,9 @@
 # Next.Js and DRF JWT Authentication with httpOnly Cookies.
 
+
 ## Backend DRF
 - python -m venv venv
+- source venv/bin/activate
 - cd backend/src
 - pip install -r requirements.txt
 - python manage.py makemigrations
@@ -11,6 +13,6 @@
 
 
 ## FrontEnd Next JS
-- cd frontend
 - npm install
 - npm run dev
+
