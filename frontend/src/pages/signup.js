@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Layout from "../layouts/Layout";
-import { signup } from "../actions/auth";
+import { signup } from "../redux/auth/actions";
 import Loader from "react-loader-spinner";
 import router, { useRouter } from "next/router";
 

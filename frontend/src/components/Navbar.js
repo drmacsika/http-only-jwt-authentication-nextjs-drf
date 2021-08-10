@@ -1,8 +1,66 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../redux/auth/actions";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
   const router = useRouter();
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+
+  const logoutHandler = () => {
+    if (dispatch && dispatch !== null && dispatch !== undefined)
+      dispatch(logout());
+  };
+
+  const authLinks = (
+    <>
+      <li className="nav-item">
+        <Link href="/dashboard">
+          <a
+            className={
+              router.pathname === "/dashboard" ? "nav-link active" : "nav-link"
+            }
+          >
+            Dashboard
+          </a>
+        </Link>
+      </li>
+      <li className="nav-item">
+        <a className="nav-link" href="#!" onClick={logoutHandler}>
+          Logout
+        </a>
+      </li>
+    </>
+  );
+
+  const guestLinks = (
+    <>
+      <li className="nav-item">
+        <Link href="/signup">
+          <a
+            className={
+              router.pathname === "/signup" ? "nav-link active" : "nav-link"
+            }
+          >
+            Sign Up
+          </a>
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link href="/login">
+          <a
+            className={
+              router.pathname === "/login" ? "nav-link active" : "nav-link"
+            }
+          >
+            Login
+          </a>
+        </Link>
+      </li>
+    </>
+  );
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
@@ -33,32 +91,7 @@ const Navbar = () => {
                 </a>
               </Link>
             </li>
-            <li className="nav-item">
-              <Link href="/signup">
-                <a
-                  className={
-                    router.pathname === "/signup"
-                      ? "nav-link active"
-                      : "nav-link"
-                  }
-                >
-                  Sign Up
-                </a>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link href="/login">
-                <a
-                  className={
-                    router.pathname === "/login"
-                      ? "nav-link active"
-                      : "nav-link"
-                  }
-                >
-                  Login
-                </a>
-              </Link>
-            </li>
+            {isAuthenticated ? authLinks : guestLinks}
           </ul>
         </div>
       </div>
