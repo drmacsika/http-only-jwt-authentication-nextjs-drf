@@ -8,10 +8,13 @@ import {
   LOGOUT_SUCCESS,
   LOGOUT_FAIL,
   RESET_SIGNUP_SUCCESS,
+<<<<<<< HEAD
   LOAD_USER_SUCCESS,
   LOAD_USER_FAIL,
   AUTHENTICATED_SUCCESS,
   AUTHENTICATED_FAIL,
+=======
+>>>>>>> 1df9cbffe20335545924ae86e0e422e6e77c204a
 } from "./types";
 
 // Action creators
@@ -91,7 +94,10 @@ export const login = (username, password) => async (dispatch) => {
       dispatch({
         type: LOGIN_SUCCESS,
       });
+<<<<<<< HEAD
       dispatch(load_user());
+=======
+>>>>>>> 1df9cbffe20335545924ae86e0e422e6e77c204a
     } else {
       dispatch({
         type: LOGIN_FAIL,
@@ -107,6 +113,7 @@ export const login = (username, password) => async (dispatch) => {
   });
 };
 
+<<<<<<< HEAD
 export const load_user = () => async (dispatch) => {
   try {
     const res = await fetch("api/accounts/user", {
@@ -162,6 +169,11 @@ export const check_auth_status = () => async (dispatch) => {
 export const logout = () => async (dispatch) => {
   try {
     const res = await fetch("/api/accounts/logout", {
+=======
+export const logout = () => async (dispatch) => {
+  try {
+    const res = await fetch("api/accounts/logout", {
+>>>>>>> 1df9cbffe20335545924ae86e0e422e6e77c204a
       method: "POST",
       headers: {
         Accept: "application/json",

@@ -1,4 +1,5 @@
 import Layout from "../layouts/Layout";
+<<<<<<< HEAD
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
@@ -25,5 +26,14 @@ const Dashboard = () => {
     </Layout>
   );
 };
+=======
+
+const Dashboard = () => (
+  <>
+    <Layout title="Dashboard" meta_description="content to get"></Layout>
+    <h1>Dashboard</h1>
+  </>
+);
+>>>>>>> 1df9cbffe20335545924ae86e0e422e6e77c204a
 
 export default Dashboard;
