@@ -3,16 +3,12 @@ import { useSelector, useDispatch } from "react-redux";
 import Layout from "../layouts/Layout";
 import { login, reset_signup_success } from "../redux/auth/actions";
 import Loader from "react-loader-spinner";
-import router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
   const router = useRouter();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-<<<<<<< HEAD
-  const login_success = useSelector((state) => state.auth.login_success);
-=======
->>>>>>> 1df9cbffe20335545924ae86e0e422e6e77c204a
   const loading = useSelector((state) => state.auth.loading);
 
   const [formData, setFormData] = useState({
@@ -26,11 +22,7 @@ const LoginPage = () => {
     if (dispatch && dispatch !== null && dispatch !== undefined) {
       dispatch(reset_signup_success());
     }
-<<<<<<< HEAD
   }, [dispatch]);
-=======
-  }, []);
->>>>>>> 1df9cbffe20335545924ae86e0e422e6e77c204a
 
   const onChange = (e) =>
     setFormData({
@@ -49,13 +41,6 @@ const LoginPage = () => {
     router.push("/dashboard");
   }
 
-<<<<<<< HEAD
-  if (login_success) {
-    router.push("/dashboard");
-  }
-
-=======
->>>>>>> 1df9cbffe20335545924ae86e0e422e6e77c204a
   return (
     <Layout
       title="httpOnly JWT Auth | Login"

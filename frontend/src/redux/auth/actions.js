@@ -1,20 +1,19 @@
 import {
   SIGNUP_SUCCESS,
   SIGNUP_FAIL,
+  RESET_SIGNUP_SUCCESS,
   SET_AUTH_LOADING,
   REMOVE_AUTH_LOADING,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT_SUCCESS,
   LOGOUT_FAIL,
-  RESET_SIGNUP_SUCCESS,
-<<<<<<< HEAD
   LOAD_USER_SUCCESS,
   LOAD_USER_FAIL,
   AUTHENTICATED_SUCCESS,
   AUTHENTICATED_FAIL,
-=======
->>>>>>> 1df9cbffe20335545924ae86e0e422e6e77c204a
+  REFRESH_SUCCESS,
+  REFRESH_FAIL,
 } from "./types";
 
 // Action creators
@@ -94,10 +93,7 @@ export const login = (username, password) => async (dispatch) => {
       dispatch({
         type: LOGIN_SUCCESS,
       });
-<<<<<<< HEAD
       dispatch(load_user());
-=======
->>>>>>> 1df9cbffe20335545924ae86e0e422e6e77c204a
     } else {
       dispatch({
         type: LOGIN_FAIL,
@@ -113,7 +109,6 @@ export const login = (username, password) => async (dispatch) => {
   });
 };
 
-<<<<<<< HEAD
 export const load_user = () => async (dispatch) => {
   try {
     const res = await fetch("api/accounts/user", {
@@ -141,6 +136,8 @@ export const load_user = () => async (dispatch) => {
   }
 };
 
+
+
 export const check_auth_status = () => async (dispatch) => {
   try {
     const res = await fetch("/api/accounts/verify-cookie-token", {
@@ -166,14 +163,36 @@ export const check_auth_status = () => async (dispatch) => {
   }
 };
 
-export const logout = () => async (dispatch) => {
+
+export const request_refresh = () => async dispatch => {
   try {
-    const res = await fetch("/api/accounts/logout", {
-=======
+      const res = await fetch('/api/accounts/refresh-token', {
+          method: 'GET',
+          headers: {
+              'Accept': 'application/json',
+          }
+      });
+
+      if (res.status === 200) {
+          dispatch({
+              type: REFRESH_SUCCESS
+          });
+          dispatch(check_auth_status());
+      } else {
+          dispatch({
+              type: REFRESH_FAIL
+          });
+      }
+  } catch(err) {
+      dispatch({
+          type: REFRESH_FAIL
+      });
+  }
+};
+
 export const logout = () => async (dispatch) => {
   try {
     const res = await fetch("api/accounts/logout", {
->>>>>>> 1df9cbffe20335545924ae86e0e422e6e77c204a
       method: "POST",
       headers: {
         Accept: "application/json",

@@ -8,13 +8,12 @@ import {
   LOGOUT_SUCCESS,
   LOGOUT_FAIL,
   RESET_SIGNUP_SUCCESS,
-<<<<<<< HEAD
   LOAD_USER_SUCCESS,
   LOAD_USER_FAIL,
   AUTHENTICATED_SUCCESS,
   AUTHENTICATED_FAIL,
-=======
->>>>>>> 1df9cbffe20335545924ae86e0e422e6e77c204a
+  REFRESH_SUCCESS,
+  REFRESH_FAIL,
 } from "./types";
 
 const initialState = {
@@ -51,7 +50,6 @@ const authReducer = (state = initialState, action) => {
         ...state,
         isAuthenticated: false,
       };
-<<<<<<< HEAD
     case LOAD_USER_SUCCESS:
       return {
         ...state,
@@ -71,18 +69,23 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         isAuthenticated: false,
-        user: null
+        user: null,
       };
-=======
->>>>>>> 1df9cbffe20335545924ae86e0e422e6e77c204a
+    case REFRESH_SUCCESS:
+      return {
+        ...state,
+      };
+    case REFRESH_FAIL:
+      return {
+        ...state,
+        isAuthenticated: false,
+        user: null,
+      };
     case LOGOUT_SUCCESS:
       return {
         ...state,
         isAuthenticated: false,
-<<<<<<< HEAD
         user: null,
-=======
->>>>>>> 1df9cbffe20335545924ae86e0e422e6e77c204a
       };
     case LOGOUT_FAIL:
       return {

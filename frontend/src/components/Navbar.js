@@ -65,11 +65,7 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
         <Link href="/">
-<<<<<<< HEAD
           <a className="navbar-brand">httpOnly Auth</a>
-=======
-          <a className="navbar-brand">Navbar</a>
->>>>>>> 1df9cbffe20335545924ae86e0e422e6e77c204a
         </Link>
         <button
           className="navbar-toggler"
